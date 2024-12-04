@@ -46,11 +46,13 @@ const library = {
   checkoutBook: function (userName, bookTitle) {
     let user = null;
 
-    for (let i = 0; i < this.users.length; i++) {
-      if (this.users[i].name === userName) {
-        user = this.users[i];
-      }
-    }
+    user = this.users.find((user) => user.name == userName);
+
+    // for (let i = 0; i < this.users.length; i++) {
+    //   if (this.users[i].name === userName) {
+    //     user = this.users[i];
+    //   }
+    // }
 
     // null = false??
     if (!user) {
@@ -60,11 +62,13 @@ const library = {
 
     let book = null;
 
-    for (let i = 0; i < this.books.length; i++) {
-      if (this.books[i].title === bookTitle) {
-        book = this.books[i];
-      }
-    }
+    book = this.books.find((book) => book.title == bookTitle);
+
+    // for (let i = 0; i < this.books.length; i++) {
+    //   if (this.books[i].title === bookTitle) {
+    //     book = this.books[i];
+    //   }
+    // }
 
     if (!book) {
       console.log(`Book ${bookTitle} not found.`);
@@ -93,35 +97,47 @@ const library = {
   listAvailableBooks: function () {
     console.log("Available Books:");
 
-    for (let i = 0; i < this.books.length; i++) {
-      if (this.books[i].available) {
+    this.books.forEach((book) => {
+      if (book.available) {
         console.log(
-          `${this.books[i].title} by ${this.books[i].author}, (Rating: ${this.books[i].rating})`
+          `${book.title} by ${book.author}, (Rating: ${book.rating})`
         );
       }
-    }
+    });
+
+    // for (let i = 0; i < this.books.length; i++) {
+    //   if (this.books[i].available) {
+    //     console.log(
+    //       `${this.books[i].title} by ${this.books[i].author}, (Rating: ${this.books[i].rating})`
+    //     );
+    //   }
+    // }
   },
 
   listUsers: function () {
     console.log("Registered Users:");
-    for (let i = 0; i < this.users.length; i++) {
-      console.log(`${this.users[i].name} (Age: ${this.users[i].age})`);
-    }
+
+    this.users.forEach((user) => {
+      console.log(`${user.name} (Age: ${user.age})`);
+    });
+
+    // for (let i = 0; i < this.users.length; i++) {
+    //   console.log(`${this.users[i].name} (Age: ${this.users[i].age})`);
+    // }
   },
 };
 
-
-console.log("---------------------------------")
-library.listAvailableBooks()
-library.listUsers()
-console.log("---------------------------------")
-console.log("Adding a Book")
-library.addBook("Fifty Shades of Grey", "E.L. James", 18)
-console.log("---------------------------------")
-console.log("Adding a User")
-library.addUser("Darth Vader", 55)
-console.log("---------------------------------")
-library.checkoutBook("Anakin Skywalker", "Attack on Titan (Manga)")
-library.checkoutBook("Peter", "Attack on Titan (Manga)")
-console.log("---------------------------------")
-library.listAvailableBooks()
+console.log("---------------------------------");
+library.listAvailableBooks();
+library.listUsers();
+console.log("---------------------------------");
+console.log("Adding a Book");
+library.addBook("Fifty Shades of Grey", "E.L. James", 18);
+console.log("---------------------------------");
+console.log("Adding a User");
+library.addUser("Darth Vader", 55);
+console.log("---------------------------------");
+library.checkoutBook("Anakin Skywalker", "Attack on Titan (Manga)");
+library.checkoutBook("Peter", "Attack on Titan (Manga)");
+console.log("---------------------------------");
+library.listAvailableBooks();
