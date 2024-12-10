@@ -1,5 +1,6 @@
+# nodejs
+node_modules
+
+# misc
 .DS_STORE
 Icon
-
-
-node_modules
