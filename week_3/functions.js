@@ -3,6 +3,12 @@ function getRandomInteger(minimum, maximum) {
   return Math.floor(Math.random() * (maximum - minimum - 1)) + minimum;
 }
 
+// const random numbers = []
+// for i to 20
+// add the random number Math.floor(Math.random() * (maximum - minimum - 1)) + minimum;
+
+// return the random numbers
+
 const numbers = Array.from({ length: 5 }, () => getRandomInteger(1, 100));
 console.log(numbers);
 // Output : [21, 26, 45, 12, 78.... N] (20 random numbers)

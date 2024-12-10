@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Counter</title>
+  </head>
+  <style>
+    body {
+      background-color: azure;
+    }
+  </style>
+  <body>
+    <h1>Simple Counter</h1>
+    <h3>My name is? : <span id="myName"></span></h3>
+    <input type="text" id="name" />
+    <p id="counter">0</p>
+    <button id="incrementButton">Increment</button>
+    <script>
+      let count = 0;
+      // initial value that we are going to manipulate
+
+      const counterDisplay = document.getElementById("counter");
+      // counterDisplay = <p id="counter">0</p>
+      const incrementButton = document.getElementById("incrementButton");
+      // <button id="incrementButton">Increment</button>
+
+      const nameInput = document.getElementById("name");
+      const myNameDisplay = document.getElementById("myName")
+
+      nameInput.addEventListener("keyup", () => {
+        myNameDisplay.textContent = nameInput.value
+      });
+
+      incrementButton.addEventListener("click", function () {
+        console.log("I've been clicked!!");
+        count++;
+        counterDisplay.textContent = count;
+      });
+    </script>
+  </body>
+</html>

@@ -20,7 +20,7 @@ const person2 = {
 
 console.log(person2.greet());
 
-console.log(animal02.greet());
+// console.log(animal02.greet());
 
 const grocery_list = [
   "eggs",
